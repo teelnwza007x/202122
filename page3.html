@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูเว็บไซต์พร้อมอนิเมชัน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://lookw.net/12/1218/1638153522-1001.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Kanit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            animation: background-pan 20s infinite linear;
+        }
+
+        @keyframes background-pan {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .profile-section {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            animation: fade-in 1s ease-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .profile-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .profile-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: float-up 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .profile-section h2, .profile-section h3 {
+            margin: 10px 0;
+        }
+
+        .menu {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            animation: fade-in 1s ease-out;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            animation: float-up 2s infinite alternate ease-in-out;
+        }
+
+        .menu li:hover {
+            transform: scale(1.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-family: 'Abel', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .item-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .item-description {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="profile-section">
+            <div class="profile-images">
+                <img src="https://media.discordapp.net/attachments/923767062566932480/1256457100700160051/image.png?ex=6684cadc&is=6683795c&hm=f7236a2349755f82726bab8e9f528fe67093360b13c964b48dff6b62092505fd&=&format=webp&quality=lossless&width=530&height=671" alt="Profile Image" class="profile-image"> <!-- Replace with actual image file path -->
+                <img src="https://media.discordapp.net/attachments/923767062566932480/1256842883877830779/image.png?ex=6684e0a6&is=66838f26&hm=ad90cb20350c4d398ddd7a1efbea165d44e770cfb2a6da511ae62a94fe2d99b2&=&format=webp&quality=lossless&width=503&height=671" alt="Profile Image" class="profile-image"> <!-- Replace with actual image file path -->
+                <img src="https://media.discordapp.net/attachments/923767062566932480/1256842946985066506/image.png?ex=6684e0b5&is=66838f35&hm=1dafa33add7b218bb458f1d27d1cff9688bf44257b7971abfe16cd85d80bf5eb&=&format=webp&quality=lossless&width=503&height=671" alt="Profile Image" class="profile-image"> <!-- Replace with actual image file path -->
+            </div>
+            <h2>เว็บไซต์นี้จัดทำขึ้นเพื่อเป็นแบบทดสอบความเสี่ยงในการเป็นโรคซึมเศร้า</h2>
+            <h2>จัดทำโดย</h2>
+            <h2>วิลาวัณย์ เดชจงกล เลขที่ 20</h2>
+            <h2>สุรางคณา วิมลนพคุณ เลขที่ 21</h2>
+            <h2>อันเจล่า รุมพล เลขที่ 22</h2>
+        </div>
+        
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <div class="item-name">หน้าหลัก</div>
+                        <div class="item-description">เข้าสู่หน้าหลักของเว็บไซต์</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page2.html">
+                        <div class="item-name">แบบสอบถาม</div>
+                        <div class="item-description">แบบสอบถามโรคซึมเศร้า</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page3.html">
+                        <div class="item-name">เกี่ยวกับ</div>
+                        <div class="item-description">ข้อมูลเกี่ยวกับเว็บไซต์</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
