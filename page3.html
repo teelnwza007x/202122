@@ -64,15 +64,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 10px;
             margin: 20px 0;
         }
 
         .profile-image {
-            width: 130px;
-            height: 130px;
+            width: 90px; /* ลดขนาดของรูปภาพ */
+            height: 90px;
             border-radius: 50%;
-            margin: 0 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
             animation: float-up 2s infinite alternate ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1); /* ขยายรูปภาพเมื่อ hover */
         }
 
         @keyframes float-up {
@@ -84,7 +90,7 @@
             }
         }
 
-        .profile-section h2, .profile-section h3 {
+        .profile-section h2 {
             margin: 10px 0;
         }
 
@@ -154,7 +160,7 @@
     <div class="content-wrapper">
         <div class="profile-section">
             <div class="profile-images">
-                <img src="https://media.discordapp.net/attachments/923767062566932480/1267660041138339851/IMG_2396.png?ex=67203ee9&is=671eed69&hm=96053c90fa4ba457764374896931ec2e7a2c97adb258383609de51f3464426f7&=&format=webp&quality=lossless&width=504&height=671">
+                <img class="profile-image" src="https://media.discordapp.net/attachments/923767062566932480/1267660041138339851/IMG_2396.png?ex=67203ee9&is=671eed69&hm=96053c90fa4ba457764374896931ec2e7a2c97adb258383609de51f3464426f7&=&format=webp&quality=lossless&width=504&height=671">
             </div>
             <h2>เว็บไซต์นี้จัดทำขึ้นเพื่อเป็นผลเป็นงานใน PORTFOLIO</h2>
             <h2>จัดทำโดย</h2>
