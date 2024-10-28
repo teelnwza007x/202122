@@ -342,16 +342,16 @@
         let riskLevel = "";
         let riskColor = "";
         if (totalScore <= 4) {
-            riskLevel = "ไม่เสี่ยง";
+            riskLevel = "คุณไม่มีความเสี่ยงที่จะเป็นภาวะซึมเศร้า";
             riskColor = "green"; // สีเขียว
         } else if (totalScore <= 8) {
-            riskLevel = "เสี่ยงน้อย";
+            riskLevel = "คุณมีความเสี่ยงที่จะเป็นภาวะซึมเศร้าเล็กน้อย";
             riskColor = "yellow"; // สีเหลือง
         } else if (totalScore <= 12) {
-            riskLevel = "เสี่ยงกลาง";
+            riskLevel = "คุณมีความเสี่ยงที่จะเป็นภาวะซึมเศร้าปานกลาง";
             riskColor = "orange"; // สีส้ม
         } else {
-            riskLevel = "เสี่ยงมาก";
+            riskLevel = ""คุณมีความเสี่ยงที่จะเป็นภาวะซึมเศร้า กรุณาพบแพทย์เพื่อปรึกษา";
             riskColor = "red"; // สีแดง
         }
 
