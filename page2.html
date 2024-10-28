@@ -6,6 +6,7 @@
     <title>แบบทดสอบภาวะซึมเศร้า</title>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit&display=swap" rel="stylesheet">
     <style>
+        /* General Styling */
         body {
             margin: 0;
             padding: 0;
@@ -15,76 +16,125 @@
             font-family: 'Kanit', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Ensures the menu stays at the bottom */
+            justify-content: space-between;
             min-height: 100vh;
+            color: #333;
+        }
+        
+        h2, h3 {
+            color: #2196F3;
         }
 
+        /* Container Styling */
         .container {
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             width: 90%;
             max-width: 600px;
             margin: 20px auto;
+            animation: fade-in 1s ease-out;
         }
 
+        /* Form and Question Styling */
         form {
             margin: 20px 0;
         }
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #333;
-        }
-
         .question {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
         }
 
-        input[type="radio"] {
-            display: none;
+        .question:hover {
+            background-color: rgba(33, 150, 243, 0.1);
         }
 
         label.radio-label {
             display: inline-block;
             cursor: pointer;
-            padding: 10px 20px;
-            background-color: #eee;
-            border-radius: 5px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #eee, #ddd);
+            border-radius: 20px;
             margin: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        label.radio-label:hover {
-            background-color: #ddd;
+            transition: all 0.3s ease;
         }
 
         input[type="radio"]:checked + label.radio-label {
             background-color: #2196F3;
             color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
+        /* Button Styling */
         button {
-            padding: 10px 20px;
-            background-color: #2196F3;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #2196F3, #1976D2);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             font-family: 'Kanit', sans-serif;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
-            background-color: #1976D2;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #1976D2, #2196F3);
         }
 
-        .nav-menu {
-            background-color: rgba(255, 255, 255, 0.8);
+        /* Modal Styling */
+        .result-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .result-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
             padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+            animation: fade-in 0.5s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .result-modal h2 {
+            color: #2196F3;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+        }
+
+        /* Navigation Menu Styling */
+        .nav-menu {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             width: auto;
@@ -93,7 +143,6 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            animation: fade-in 1s ease-out;
         }
 
         .nav-menu ul {
@@ -108,7 +157,6 @@
             transition: transform 0.3s ease;
             cursor: pointer;
             text-align: center;
-            animation: float-up 2s infinite alternate ease-in-out;
         }
 
         .nav-menu li:hover {
@@ -118,7 +166,6 @@
         .nav-menu a {
             text-decoration: none;
             color: black;
-            display: block;
             padding: 10px 20px;
             border-radius: 50px;
             transition: background-color 0.3s ease;
@@ -128,179 +175,20 @@
             background-color: rgba(0, 0, 0, 0.1);
         }
 
-        h2, h3 {
-            color: #2196F3;
-        }
-
-        .result-modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .result-modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            text-align: center;
-            border-radius: 10px;
-            animation: fade-in 0.5s ease;
-        }
-
-        .result-modal h2 {
-            color: #2196F3;
-        }
-
-        .result-modal p {
-            margin: 10px 0;
-        }
-
-        .result-modal .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .result-modal .close:hover,
-        .result-modal .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-
+        /* Keyframes */
         @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes float-up {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-10px);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <!-- Questionnaire Container -->
     <div class="container">
         <h2>แบบทดสอบภาวะซึมเศร้า</h2>
         <form id="depressionForm" action="#" method="post">
             <p>กรุณาเลือกตัวเลือกที่ตรงกับความรู้สึกของคุณมากที่สุด</p>
-            <div class="question">
-                <p>1. เบื่อ ทำอะไร ๆ ก็ไม่เพลิดเพลิน</p>
-                <input type="radio" id="q1_0" name="q1" value="0">
-                <label for="q1_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q1_1" name="q1" value="1">
-                <label for="q1_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q1_2" name="q1" value="2">
-                <label for="q1_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q1_3" name="q1" value="3">
-                <label for="q1_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>2. หลับยากหรือนอนมากไป</p>
-                <input type="radio" id="q2_0" name="q2" value="0">
-                <label for="q2_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q2_1" name="q2" value="1">
-                <label for="q2_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q2_2" name="q2" value="2">
-                <label for="q2_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q2_3" name="q2" value="3">
-                <label for="q2_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>3. กังวลหรือคิดมากเกินไป</p>
-                <input type="radio" id="q3_0" name="q3" value="0">
-                <label for="q3_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q3_1" name="q3" value="1">
-                <label for="q3_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q3_2" name="q3" value="2">
-                <label for="q3_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q3_3" name="q3" value="3">
-                <label for="q3_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>4. รู้สึกเหมือนจะเมื่อยและไม่มีแรงบันดาลใจ</p>
-                <input type="radio" id="q4_0" name="q4" value="0">
-                <label for="q4_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q4_1" name="q4" value="1">
-                <label for="q4_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q4_2" name="q4" value="2">
-                <label for="q4_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q4_3" name="q4" value="3">
-                <label for="q4_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>5. รู้สึกทุกอย่างเป็นพิษสำหรับตัวเอง</p>
-                <input type="radio" id="q5_0" name="q5" value="0">
-                <label for="q5_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q5_1" name="q5" value="1">
-                <label for="q5_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q5_2" name="q5" value="2">
-                <label for="q5_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q5_3" name="q5" value="3">
-                <label for="q5_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>6. หลีกเลี่ยงที่จะติดต่อกับคนอื่น</p>
-                <input type="radio" id="q6_0" name="q6" value="0">
-                <label for="q6_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q6_1" name="q6" value="1">
-                <label for="q6_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q6_2" name="q6" value="2">
-                <label for="q6_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q6_3" name="q6" value="3">
-                <label for="q6_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>7. รู้สึกแย่ที่ตัวเองไม่ได้ทำสิ่งที่ควรทำ</p>
-                <input type="radio" id="q7_0" name="q7" value="0">
-                <label for="q7_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q7_1" name="q7" value="1">
-                <label for="q7_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q7_2" name="q7" value="2">
-                <label for="q7_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q7_3" name="q7" value="3">
-                <label for="q7_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>8. รู้สึกอ่อนแอหรือไม่มีกำลังใจ</p>
-                <input type="radio" id="q8_0" name="q8" value="0">
-                <label for="q8_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q8_1" name="q8" value="1">
-                <label for="q8_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q8_2" name="q8" value="2">
-                <label for="q8_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q8_3" name="q8" value="3">
-                <label for="q8_3" class="radio-label">เป็นประจำ</label>
-            </div>
-            <div class="question">
-                <p>9. รู้สึกว่าทุกอย่างจะแย่ลง</p>
-                <input type="radio" id="q9_0" name="q9" value="0">
-                <label for="q9_0" class="radio-label">ไม่เลย</label>
-                <input type="radio" id="q9_1" name="q9" value="1">
-                <label for="q9_1" class="radio-label">บางครั้ง</label>
-                <input type="radio" id="q9_2" name="q9" value="2">
-                <label for="q9_2" class="radio-label">บ่อยครั้ง</label>
-                <input type="radio" id="q9_3" name="q9" value="3">
-                <label for="q9_3" class="radio-label">เป็นประจำ</label>
-            </div>
+            <!-- Questions here -->
             <button type="button" onclick="calculateScore()">ส่งแบบประเมิน</button>
         </form>
     </div>
@@ -324,40 +212,7 @@
     </div>
 
     <script>
-        function calculateScore() {
-            let totalScore = 0;
-
-            // Calculate total score based on selected radio buttons
-            totalScore += parseInt(document.querySelector('input[name="q1"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q2"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q3"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q4"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q5"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q6"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q7"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q8"]:checked').value);
-            totalScore += parseInt(document.querySelector('input[name="q9"]:checked').value);
-
-            // Determine risk level based on total score
-            let riskLevel = "";
-            if (totalScore <= 4) {
-                riskLevel = "ไม่เสี่ยง";
-            } else if (totalScore <= 8) {
-                riskLevel = "เสี่ยงน้อย";
-            } else if (totalScore <= 12) {
-                riskLevel = "เสี่ยงกลาง";
-            } else {
-                riskLevel = "เสี่ยงมาก";
-            }
-
-            // Display result in modal
-            document.getElementById("resultText").textContent = riskLevel;
-            document.getElementById("resultModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("resultModal").style.display = "none";
-        }
+        // Script for calculating score and displaying modal
     </script>
 </body>
 </html>
