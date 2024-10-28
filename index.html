@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แบบทดสอบภาวะซึมเศร้า</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -31,7 +31,7 @@
             margin: 0 auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             animation: fade-in 1s ease-out;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -44,11 +44,11 @@
         }
 
         h1 {
-            text-align: center;
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 20px;
-            font-family: 'Abel', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            color: #2196F3;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         ul {
@@ -58,40 +58,31 @@
         }
 
         li {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             text-align: center;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            padding: 10px;
+            padding: 15px;
             background: #F5F5F5;
         }
 
         li:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #E3F2FD;
         }
 
         .item-name {
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Kanit', sans-serif;
-        }
-
-        .item-name::before {
-            content: '🌟'; /* Add star icon before each item */
-            margin-right: 8px;
+            font-size: 20px;
+            font-weight: 700;
             color: #2196F3;
         }
 
         .item-description {
-            font-size: 16px;
-            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
             color: #555;
         }
 
@@ -99,18 +90,7 @@
             text-decoration: none;
             color: black;
             display: block;
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 3px solid transparent;
-            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-            box-sizing: border-box;
             text-align: center;
-        }
-
-        a:hover {
-            border-color: #2196F3;
-            background-color: rgba(33, 150, 243, 0.1);
-            color: #2196F3;
         }
 
         .button-effect {
