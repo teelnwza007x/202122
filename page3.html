@@ -40,9 +40,9 @@
         .profile-section {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             width: 90%;
             max-width: 600px;
             margin: 20px auto;
@@ -60,45 +60,38 @@
             }
         }
 
-        .profile-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .profile-image {
-            width: 90px; /* ลดขนาดของรูปภาพ */
-            height: 90px;
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-            animation: float-up 2s infinite alternate ease-in-out;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.1); /* ขยายรูปภาพเมื่อ hover */
-        }
-
-        @keyframes float-up {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-
         .profile-section h2 {
             margin: 10px 0;
+            font-size: 22px;
+            color: #333;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            animation: text-fade 1.5s ease;
+        }
+
+        .profile-section h2.title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #222;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes text-fade {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .menu {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             width: 90%;
             max-width: 600px;
             margin: 20px auto;
@@ -159,12 +152,9 @@
 <body>
     <div class="content-wrapper">
         <div class="profile-section">
-            <div class="profile-images">
-                <img class="profile-image" src="https://media.discordapp.net/attachments/923767062566932480/1267660041138339851/IMG_2396.png?ex=67203ee9&is=671eed69&hm=96053c90fa4ba457764374896931ec2e7a2c97adb258383609de51f3464426f7&=&format=webp&quality=lossless&width=504&height=671">
-            </div>
-            <h2>เว็บไซต์นี้จัดทำขึ้นเพื่อเป็นผลเป็นงานใน PORTFOLIO</h2>
+            <h2 class="title">เว็บไซต์นี้จัดทำขึ้นเพื่อเป็นผลงานใน PORTFOLIO</h2>
             <h2>จัดทำโดย</h2>
-            <h2>นายธนกฤต  เพชรสุทธิ์</h2>
+            <h2>นายธนกฤต เพชรสุทธิ์</h2>
             <h2>โรงเรียนนวมินทราชินูทิศสตรีวิทยา ๒</h2>
         </div>
         
