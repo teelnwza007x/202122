@@ -147,6 +147,24 @@
         .item-description {
             font-size: 14px;
         }
+
+        .school-emblem {
+            width: 150px; /* Adjust the size as needed */
+            animation: float 3s ease-in-out infinite;
+            margin-top: 20px; /* Space from the menu */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -180,6 +198,9 @@
                 </li>
             </ul>
         </div>
+        
+        <!-- Add the school emblem image here -->
+        <img src="https://marchmattayomschoolthailand.blogspot.com/2012/10/2-2.html" alt="ตราโรงเรียน" class="school-emblem">
     </div>
 </body>
 </html>
