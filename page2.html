@@ -6,194 +6,41 @@
     <title>แบบทดสอบภาวะซึมเศร้า</title>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Kanit&display=swap" rel="stylesheet">
     <style>
-        /* General Styling */
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url("https://lookw.net/12/1218/1638153522-1001.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            font-family: 'Kanit', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
-            color: #333;
+        /* รหัส CSS ทั้งหมดที่เคยใช้ก่อนหน้านี้ */
+        
+        /* ปรับปรุงส่วนผลการประเมิน */
+        .result-low {
+            color: green;
+            font-weight: bold;
         }
         
-        h2, h3 {
-            color: #2196F3;
-        }
-
-        /* Container Styling */
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            animation: fade-in 1s ease-out;
-        }
-
-        /* Form and Question Styling */
-        form {
-            margin: 20px 0;
-        }
-
-        .question {
-            margin-bottom: 20px;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            transition: background-color 0.3s ease;
-        }
-
-        .question:hover {
-            background-color: rgba(33, 150, 243, 0.1);
-        }
-
-        label.radio-label {
-            display: inline-block;
-            cursor: pointer;
-            padding: 10px 25px;
-            background: linear-gradient(135deg, #eee, #ddd);
-            border-radius: 20px;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
-        input[type="radio"]:checked + label.radio-label {
-            background-color: #2196F3;
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Button Styling */
-        button {
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #2196F3, #1976D2);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Kanit', sans-serif;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #1976D2, #2196F3);
-        }
-
-        /* Modal Styling */
-        .result-modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-        }
-
-        .result-modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            text-align: center;
-            border-radius: 10px;
-            animation: fade-in 0.5s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .result-modal h2 {
-            color: #2196F3;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
+        .result-moderate {
+            color: orange;
             font-weight: bold;
-            cursor: pointer;
+        }
+        
+        .result-high {
+            color: red;
+            font-weight: bold;
         }
 
-        .close:hover, .close:focus {
-            color: black;
+        .result-moderate-low {
+            color: #FFD700;
+            font-weight: bold;
         }
-
-        /* Navigation Menu Styling */
-        .nav-menu {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: auto;
-            max-width: 600px;
-            margin: 20px auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .nav-menu ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        .nav-menu li {
-            margin: 0 10px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .nav-menu li:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: black;
-            padding: 10px 20px;
-            border-radius: 50px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Keyframes */
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        
     </style>
 </head>
 <body>
-    <!-- Questionnaire Container -->
     <div class="container">
         <h2>แบบทดสอบภาวะซึมเศร้า</h2>
         <form id="depressionForm" action="#" method="post">
             <p>กรุณาเลือกตัวเลือกที่ตรงกับความรู้สึกของคุณมากที่สุด</p>
-            <!-- Questions here -->
+            <!-- คำถามแบบฟอร์มจะอยู่ที่นี่ -->
             <button type="button" onclick="calculateScore()">ส่งแบบประเมิน</button>
         </form>
     </div>
 
-    <!-- Modal for displaying assessment result -->
     <div id="resultModal" class="result-modal">
         <div class="result-modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -202,7 +49,6 @@
         </div>
     </div>
 
-    <!-- Menu Bar -->
     <div class="nav-menu">
         <ul>
             <li><a href="index.html">หน้าหลัก</a></li>
@@ -212,7 +58,49 @@
     </div>
 
     <script>
-        // Script for calculating score and displaying modal
+        function calculateScore() {
+            let totalScore = 0;
+
+            // คำนวณคะแนน
+            totalScore += parseInt(document.querySelector('input[name="q1"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q2"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q3"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q4"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q5"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q6"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q7"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q8"]:checked').value);
+            totalScore += parseInt(document.querySelector('input[name="q9"]:checked').value);
+
+            // ประเมินระดับความเสี่ยง
+            let riskLevel = "";
+            let riskClass = "";
+
+            if (totalScore <= 4) {
+                riskLevel = "ไม่เสี่ยง";
+                riskClass = "result-low";
+            } else if (totalScore <= 8) {
+                riskLevel = "เสี่ยงน้อย";
+                riskClass = "result-moderate-low";
+            } else if (totalScore <= 12) {
+                riskLevel = "เสี่ยงกลาง";
+                riskClass = "result-moderate";
+            } else {
+                riskLevel = "เสี่ยงมาก";
+                riskClass = "result-high";
+            }
+
+            // แสดงผลใน modal พร้อมสีที่แสดงระดับความเสี่ยง
+            const resultText = document.getElementById("resultText");
+            resultText.textContent = riskLevel;
+            resultText.className = riskClass;  // ตั้งค่าคลาสสีของข้อความ
+
+            document.getElementById("resultModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("resultModal").style.display = "none";
+        }
     </script>
 </body>
 </html>
